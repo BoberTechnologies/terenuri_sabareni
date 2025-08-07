@@ -1,20 +1,34 @@
 <template>
-  <div class="edge-strip" :style="stripStyle">
-    <div class="strip-left">{{ leftText }}</div>
+  <div :style="stripStyle" class="edge-strip">
+    <div class="strip-left">
+      <button class="icon-button" @click="navigate">
+        <img :src="arrow" alt="Next" class="counter" />
+      </button>
+    </div>
     <div class="strip-center">{{ centerText }}</div>
     <div class="strip-right">{{ rightText }}</div>
   </div>
 </template>
 
 <script>
+import arrow from '../../res/Icons/arrow.svg'
+import {useRouter} from 'vue-router'
+
 export default {
   name: 'EdgeStrip',
   props: {
-    leftText: { type: String, required: true },
     centerText: { type: String, required: true },
     rightText: { type: String, required: true },
-    background: { type: String, default: '#f5f5f5' },
+    to: String,
+    background: { type: String, default: '#f6fff6' },
     color: { type: String, default: '#222' },
+  },
+  setup(props){
+    const router = useRouter()
+    const navigate = () => {
+      if (props.to) router.push(props.to)
+    }
+    return { arrow, navigate }
   },
   computed: {
     stripStyle() {
@@ -31,27 +45,61 @@ export default {
       };
     },
   },
+  data(){return{
+    arrow,
+  }}
 };
 </script>
 
 <style scoped>
 .edge-strip {
   width: 100%;
+  opacity: 0.8;
+  font-family: "Bitter", serif;
+
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0));
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
+
 .strip-left {
-  font-size: 0.9em;
   flex: 1;
+  display: flex;
+  align-items: center;
 }
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.icon-button:hover img {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.icon-button:focus {
+  outline: none;
+}
+
+.counter {
+  height: 3em;
+  margin-left: 1rem;
+}
+
 .strip-center {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   flex: 2;
+  padding-left: 5rem;
 }
 .strip-right {
   font-size: 1em;
-  text-align: right;
-  flex: 2;
+  text-align: left;
+  flex: 1;
+  justify-content: start;
 }
 </style>
-

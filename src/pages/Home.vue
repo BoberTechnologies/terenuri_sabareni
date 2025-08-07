@@ -36,33 +36,41 @@
   </div>
 
   <div class="strips-content">
-    <EdgeStrip left-text="01" center-text="test" right-text="some more test text" />
+    <EdgeStrip center-text="Despre" right-text="Descoperă viziunea din spatele proiectului" to="/about" />
+    <EdgeStrip center-text="Localizare" right-text="Explorează un loc ales cu grijă" to="/localize" />
+    <EdgeStrip center-text="Terenuri" right-text="Alege locul unde visul tău prinde formă" to="/plots"/>
+    <EdgeStrip center-text="Contact" right-text="Hai să luăm legătura" />
   </div>
 
+  <div class="filler-content">
+    <div class="filler-image">
+      <BackgroundCard
+          title=""
+          text=""
+          width="100%"
+          height="100%"
+          :background="img7"
+          :fade-stops="[
+        'rgba(0,0,0,1) 0%',
+        'rgba(0,0,0,1) 100%'
+      ]"
+      />
+    </div>
+  </div>
 </template>
 
 <script setup>
-import BackgroundCard from '../components/BackgroundCard.vue'
-import Carousel from '../components/Carousel.vue'
-
-import homeImage from '../../res/Home/Home_1.jpg'
-
-import img1 from '../../res/Home/Home_1.jpg'
-import img2 from '../../res/Home/Home_2.jpg'
-import img3 from '../../res/Home/Home_3.jpg'
-import img4 from '../../res/Home/Home_4.jpg'
-import img5 from '../../res/Home/Home_5.jpg'
-import img6 from '../../res/Home/Home_6.jpg'
-import EdgeStrip from "@/components/EdgeStrip.vue";
-
-const homeImages = [
-  { image: img1, title: 'Utilitati pregatite', paragraph: 'Gaze naturale si energie electrica, fara griji sau batai de cap' },
-  { image: img2, title: 'Drumuri amenajate', paragraph: 'Acces facil, chiar si in cele mai ploioase zile' }, // No text
-  { image: img3, title: 'Autorizatii de constructie', paragraph: 'Poti incepe constructia imediat' },
-  { image: img4, title: 'Padurea Cereanca', paragraph: 'Perfect pentru plimbari in aer liber si liniste deplina' },
-  { image: img5, title: 'Totul gata, doar pentru tine', paragraph: '18 luni de munca intensa, proiectare, avizari si executii pentru ca tu sa poti incepe constructia fara batai de cap' }
-]
+import {
+    BackgroundCard,
+    Carousel,
+    EdgeStrip,
+    homeImage,
+    img6,
+    img7,
+    homeImages
+} from '../imports//homeImports.js'
 </script>
+
 
 <style scoped>
 .home-container {
@@ -103,8 +111,6 @@ const homeImages = [
   background: rgba(255, 255, 255, 0.1);
 }
 
-
-
 @media (orientation: portrait) {
   .section-image {
     width: 100vw;
@@ -116,10 +122,34 @@ const homeImages = [
   .section-content p{
     display: inline-block;
   }
+
+  .filler-content {
+    width: 100vw;
+    height: 40vh;
+  }
 }
 
 .strips-content{
   margin-top: 10vh;
+}
+
+.filler-content {
+  /* Make it fill viewport height or desired height */
+  height: 80vh;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+}
+
+.filler-image {
+  width: 60vw;
+  /* Make this a flex container as well to center the card inside if needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 16px;
 }
 
 </style>

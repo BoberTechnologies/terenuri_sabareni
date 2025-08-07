@@ -14,10 +14,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/TerenuriSabareni/'),
-  routes: [
-    {path: '/', component: Home},
-  ],
+  history: createWebHistory('/terenuri_sabareni/'),
+  routes, // use the full array here
 });
 
 export default router;
