@@ -9,55 +9,31 @@
     />
   </div>
 
-  <div class="scroll-elements">
-    <vueper-slides
-        class="no-shadow"
-        :visible-slides="3"
-        :slide-ratio="1 / 4"
-        :dragging-distance="70"
-    >
-      <vueper-slide
-          v-for="(img, i) in slideImages"
-          :key="i"
-      >
-        <!-- Optional title slot -->
-        <template #title>
-          Plot {{ i + 1 }}
-        </template>
-
-        <!-- Content slot with ImageCard -->
-        <template #content>
-          <ImageCard
-              :image="img"
-              width="auto"
-              height="30vh"
-          />
-        </template>
-      </vueper-slide>
-    </vueper-slides>
+  <div class="carousel">
+    <Carousel :images="homeImages"/>
   </div>
+
 </template>
 
 <script setup>
 import BackgroundCard from '../components/BackgroundCard.vue'
-import ImageCard from '../components/ImageCard.vue'
+import Carousel from '../components/Carousel.vue'
 
 import homeImage from '../../res/Home/Home_1.jpg'
-import plot1 from '../../res/Home/Home_1.jpg'
-import plot2 from '../../res/Home/Home_2.jpg'
-import plot3 from '../../res/Home/Home_3.jpg'
 
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import img1 from '../../res/Home/Home_1.jpg'
+import img2 from '../../res/Home/Home_2.jpg'
+import img3 from '../../res/Home/Home_3.jpg'
+import img4 from '../../res/Home/Home_4.jpg'
+import img5 from '../../res/Home/Home_5.jpg'
 
-// Example list of images for the slides
-const slideImages = [
-  plot1,
-  plot2,
-  plot3,
-  plot1,
-  plot2,
-  plot3
+
+const homeImages = [
+  { image: img1, title: 'Welcome Home', paragraph: 'A beautiful place to relax and unwind.' },
+  { image: img2 }, // No text
+  { image: img3, title: 'Mountain View' },
+  { image: img4, paragraph: 'Surrounded by nature and fresh air.' },
+  { image: img5, title: 'City Lights', paragraph: 'Experience the vibrant city life.' }
 ]
 </script>
 
@@ -69,5 +45,10 @@ const slideImages = [
   justify-content: center;
   min-height: 60vh;
   text-align: center;
+}
+
+.carousel{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 </style>
