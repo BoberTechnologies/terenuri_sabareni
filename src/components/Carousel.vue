@@ -76,6 +76,7 @@ function scrollRight() {
 .custom-card {
   flex-shrink: 0;
   box-sizing: border-box;
+  width: max(20vw, 20vh);
 }
 
 /* Icon-only buttons */
@@ -87,18 +88,22 @@ function scrollRight() {
   z-index: 10;
   cursor: pointer;
   border-radius: 50%;
+  line-height: 0;
 }
 
 .nav-icon {
   width: min(5vw, 5vh);
-  filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); /* Makes icon white */
+  filter: brightness(0) drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); /* Makes icon white */
   transition: filter 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
 .nav-icon-button:hover .nav-icon {
-  filter: brightness(0) invert(0.7) drop-shadow(0 0 5px rgba(0, 0, 0, 0.1)); /* Slightly dimmer on hover */
+  opacity: 0.6; /* Make it more transparent */
+  filter: invert(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); /* keep invert and drop-shadow */
   transform: scale(1.1);
 }
+
 
 /* Position buttons */
 .left-button {
