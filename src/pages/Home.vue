@@ -72,8 +72,8 @@ const homeImages = [
 
 .section-content {
   display: flex;
-  width: 100vw;
-  height: 100vh; /* make sure container fills viewport height */
+  width: 100%;
+  height: 100%; /* make sure container fills viewport height */
 }
 
 .section-content p{

@@ -14,8 +14,10 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  history: createWebHistory('/terenuri_sabareni/'),
+  routes: [
+    {path: '/', component: Home},
+  ],
 });
 
 export default router;
