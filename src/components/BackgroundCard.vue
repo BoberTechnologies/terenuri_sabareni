@@ -16,9 +16,26 @@ export default {
     text: { type: String, required: true },
     width: { type: String, default: '350px' },
     height: { type: String, default: '220px' },
+
+    // Fade direction: 'to bottom', 'to top', etc.
+    fadeDirection: {
+      type: String,
+      default: 'to bottom',
+    },
+
+    // Custom gradient stops
+    fadeStops: {
+      type: Array,
+      default: () => [
+        'rgba(0,0,0,1) 0%',
+        'rgba(0,0,0,0) 100%',
+      ],
+    },
   },
   computed: {
     cardStyle() {
+      const gradient = `linear-gradient(${this.fadeDirection}, ${this.fadeStops.join(', ')})`;
+
       return {
         width: this.width,
         height: this.height,
@@ -28,7 +45,13 @@ export default {
         color: '#fff',
         display: 'flex',
         alignItems: 'flex-end',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+        WebkitMaskImage: gradient,
+        maskImage: gradient,
+        WebkitMaskSize: '100% 100%',
+        maskSize: '100% 100%',
+        WebkitMaskRepeat: 'no-repeat',
+        maskRepeat: 'no-repeat',
       };
     },
   },
@@ -44,7 +67,7 @@ export default {
 }
 
 .background-card .content {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   padding: 16px;
   width: 100%;
   display: flex;
@@ -54,5 +77,6 @@ export default {
   height: 100%;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 </style>

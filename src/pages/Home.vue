@@ -6,6 +6,11 @@
         text="Discover available plots, learn about the area, and find your perfect land in Sabareni!"
         width="100%"
         height="100%"
+        :fade-stops="[
+    'rgba(0,0,0,1) 0%',
+    'rgba(0,0,0,0.9) 70%',
+    'rgba(0,0,0,0.7) 80%',
+    'rgba(0,0,0,0) 100%']"
     />
   </div>
 
@@ -20,6 +25,11 @@
                       :background="img6"
                       height="100%"
                       width="100%"
+                      :fade-stops="[
+    'rgba(0,0,0,0) 0%',
+    'rgba(0,0,0,1) 20%',
+    'rgba(0,0,0,1) 80%',
+    'rgba(0,0,0,0) 100%']"
       />
     </div>
     <p>Some test text</p>
@@ -63,6 +73,7 @@ const homeImages = [
   min-height: 60vh;
   height: 100vh;
   text-align: center;
+  background: rgba(255, 255, 255, 0);
 }
 
 .carousel{
@@ -89,6 +100,7 @@ const homeImages = [
   height: 100vh;
   width: 40vw;
   flex-shrink: 0; /* don't shrink the image container */
+  background: rgba(255, 255, 255, 0.1);
 }
 
 

@@ -14,7 +14,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/terenuri_sabareni/'),
+  history: createWebHistory('/TerenuriSabareni/'),
   routes: [
     {path: '/', component: Home},
   ],

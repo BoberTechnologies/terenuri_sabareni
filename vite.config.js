@@ -10,7 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/terenuri_sabareni/',
+  base: '/TerenuriSabareni/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
