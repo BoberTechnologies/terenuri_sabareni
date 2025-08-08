@@ -52,6 +52,7 @@ export default {
         maskSize: '100% 100%',
         WebkitMaskRepeat: 'no-repeat',
         maskRepeat: 'no-repeat',
+        backgroundRepeat: 'no-repeat',
       };
     },
   },

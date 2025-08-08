@@ -45,8 +45,8 @@
   <div class="filler-content">
     <div class="filler-image">
       <BackgroundCard
-          title=""
-          text=""
+          title="Titlu"
+          text="text"
           width="100%"
           height="100%"
           :background="img7"
@@ -57,6 +57,13 @@
       />
     </div>
   </div>
+
+  <div>
+    <image-card image=""/>
+    <image-card image=""/>
+    <image-card image=""/>
+  </div>
+
 </template>
 
 <script setup>
@@ -69,6 +76,7 @@ import {
     img7,
     homeImages
 } from '../imports//homeImports.js'
+import ImageCard from "@/components/ImageCard.vue";
 </script>
 
 
@@ -111,6 +119,22 @@ import {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.strips-content{
+  margin-top: 10vh;
+}
+
+.filler-image {
+  width: 100%;
+  height: 50vh;
+  /* Make this a flex container as well to center the card inside if needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  overflow: hidden;
+}
+
 @media (orientation: portrait) {
   .section-image {
     width: 100vw;
@@ -123,33 +147,9 @@ import {
     display: inline-block;
   }
 
-  .filler-content {
+  .filler-image {
     width: 100vw;
-    height: 40vh;
   }
-}
-
-.strips-content{
-  margin-top: 10vh;
-}
-
-.filler-content {
-  /* Make it fill viewport height or desired height */
-  height: 80vh;
-  display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
-}
-
-.filler-image {
-  width: 60vw;
-  /* Make this a flex container as well to center the card inside if needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  margin: 0 auto;
-  border-radius: 16px;
 }
 
 </style>
