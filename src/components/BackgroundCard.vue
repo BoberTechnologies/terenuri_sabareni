@@ -69,15 +69,24 @@ export default {
 
 .background-card .content {
   background: rgba(0, 0, 0, 0.4);
-  padding: 16px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100% !important;
   position: relative;
   z-index: 2;
   text-align: center;
+  padding: 2rem !important;
+}
+
+.background-card .content p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow: visible;
+  text-align: left;
 }
 </style>

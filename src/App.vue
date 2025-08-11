@@ -7,7 +7,7 @@ import FooterBar from './components/FooterBar.vue';
 <template>
   <TopNavbar />
   <BurgerMenu />
-  <div>
+  <div class="container">
     <router-view />
   </div>
   <FooterBar />

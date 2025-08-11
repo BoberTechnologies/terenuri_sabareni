@@ -73,8 +73,8 @@
     </ImageCard>
   </div>
 
-  <div class="form-class">
-    <background-card
+  <div class="form-class" >
+    <BackgroundCard
         title=""
         text=""
         :background="stair_left"
@@ -84,7 +84,7 @@
         'rgba(0,0,0,1) 0%',
         'rgba(0,0,0,1) 100%'
       ]"/>
-    <background-card
+    <BackgroundCard
         title=""
         text=""
         :background="stair_right"
@@ -94,32 +94,33 @@
         'rgba(0,0,0,1) 0%',
         'rgba(0,0,0,1) 100%'
       ]"/>
-    <ContactForm class="contact-form"/>
+    <ContactForm class="contact-form" id="contactform"/>
   </div>
 
 </template>
 
 <script setup>
 import {
-    BackgroundCard,
-    Carousel,
-    EdgeStrip,
-    ContactForm,
-    homeImage,
-    img6,
-    img7,
-    homeImages,
-    house_black,
-    house_blue,
-    house_yellow,
-    stair_left,
-    stair_right,
+  BackgroundCard,
+  Carousel,
+  EdgeStrip,
+  ContactForm,
+  ImageCard,
+  homeImage,
+  img6,
+  img7,
+  homeImages,
+  house_black,
+  house_blue,
+  house_yellow,
+  stair_left,
+  stair_right,
 } from '../imports//homeImports.js'
-import ImageCard from "@/components/ImageCard.vue";
+
 </script>
 
-
 <style scoped>
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -192,10 +193,11 @@ import ImageCard from "@/components/ImageCard.vue";
 .form-class {
   display: flex;
   width: 100%;
-  height: 120vh; /* Full screen height */
+  min-height: 45rem; /* Replaced fixed vh with a flexible min-height in rem */
   position: relative; /* To position form absolutely */
   margin-top: 10vh;
   flex-wrap: nowrap; /* default: no wrap */
+  height: 160vh;
 }
 
 .form-class > *:not(.contact-form) {
@@ -234,17 +236,22 @@ import ImageCard from "@/components/ImageCard.vue";
   }
   .form-class {
     flex-direction: column !important;
-    height: auto; /* so it can expand vertically */
+    min-height: 100%; /* Let the content determine the height */
+    overflow: hidden;
   }
 
   .form-class > *:not(.contact-form) {
-    flex: none;       /* override flex:1 to avoid forcing width */
-    width: 100% !important;   /* full width */
-    height: 70vh !important;     /* half viewport height each, adjust if you want */
+    flex: none;
+    width: 100% !important;
+    height: 100% !important; /* half viewport height */
+    margin: 0; /* remove any margin */
+    padding: 0; /* remove any padding */
+    box-sizing: border-box;
   }
 
   /* Keep the contact form positioned in the middle */
   .contact-form {
+    height: auto;
     position: absolute;
     top: 50%;
     left: 50%;

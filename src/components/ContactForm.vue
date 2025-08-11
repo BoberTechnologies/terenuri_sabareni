@@ -1,6 +1,6 @@
 <template>
   <div class="contact-container">
-    <form class="form-box" @submit.prevent="handleSubmit">
+    <form id="contactform" class="form-box" @submit.prevent="handleSubmit">
       <div class="form-wrapper">
         <div class="head-text-box">
           <p class="contactus-head">Contacteaza-ne</p>
@@ -112,36 +112,33 @@ function handleSubmit() {
 
 .contact-container {
   display: flex;
-  max-width: 90vw;
+  max-width: 75rem;
   margin: 3rem auto;
   gap: 0;
   font-family: 'Nunito', sans-serif;
   background: transparent;
-
-  height: 65vh;
-  min-height: 65vh;
-  width: 100%;
+  min-height: 31.25rem;
+  width: 80%; /* Keeping your requested width */
 }
 
 .form-box {
   background: #fff;
-  padding: 20px;
-  border-radius: 8px 0 0 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.25rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* vertical centering */
+  justify-content: center;
 }
 
 .form-wrapper {
-
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .head-text-box {
-  margin-bottom: 2vh;
+  margin-bottom: 2rem;
 }
 
 .contactus-head {
@@ -152,7 +149,7 @@ function handleSubmit() {
 .form-row {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1vh;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
@@ -172,15 +169,15 @@ function handleSubmit() {
 .input-title {
   font-weight: 600;
   font-size: 0.8rem;
-  margin-bottom: 6px;
+  margin-bottom: 0.375rem;
 }
 
 .input {
-  height: 1.2rem;
-  padding: 4px 10px;
+  height: 2rem;
+  padding: 0.25rem 0.625rem;
   font-size: 1rem;
   border: 2px solid #a2a2a2;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   outline: none;
   transition: border-color 0.3s ease;
 }
@@ -190,11 +187,11 @@ function handleSubmit() {
 }
 
 .textinput {
-  padding: 12px;
+  padding: 0.75rem;
   font-size: 1rem;
   border: 2px solid #a2a2a2;
-  border-radius: 4px;
-  min-height: 10vh;
+  border-radius: 0.25rem;
+  min-height: 10rem;
   outline: none;
   transition: border-color 0.3s ease;
   resize: none;
@@ -207,7 +204,7 @@ function handleSubmit() {
 .btn-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 2vh;
+  margin-top: 2rem;
 }
 
 .submit-btn {
@@ -218,7 +215,7 @@ function handleSubmit() {
   font-weight: 700;
   font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -232,16 +229,16 @@ function handleSubmit() {
   margin-top: 1rem;
   font-weight: 600;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* Contact Info Panel */
 .contact-info {
   background: #1c3b28;
   color: white;
-  padding: 1.5rem 2rem;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2.5rem 2rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
   font-size: 0.9rem;
   line-height: 1.4;
   display: flex;
@@ -253,8 +250,8 @@ function handleSubmit() {
 .contact-info {
   flex: 0 0 50%;
   max-width: 50%;
-  box-sizing: border-box; /* important to include padding in width */
-  height: 100%;
+  box-sizing: border-box;
+  /* Removed height property and relying on flexbox for equal height */
   overflow-y: auto;
 }
 
@@ -277,38 +274,24 @@ function handleSubmit() {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive media query for smaller screens */
 @media (orientation: portrait) {
   .contact-container {
     flex-direction: column;
-    max-width: 100%;
-    padding: 0 1rem;
-    height: auto;
+    width: 90%;
+    min-height: auto;
   }
   .form-box,
   .contact-info {
-    flex: 1 1 100%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    padding: 1rem;
+    flex: none;
+    max-width: 100%;
+    border-radius: 0;
   }
-
-  /* Remove margin between form and contact info */
-  .contact-info {
-    margin-top: 0; /* was 2rem before */
-
-    /* Adjust border-radius so they connect nicely */
-    border-radius: 0 0 8px 8px;
-  }
-
   .form-box {
-    border-radius: 8px 8px 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
-
-  .form-row {
-    flex-direction: column;
-  }
-  .half-width {
-    flex: 1 1 100%;
+  .contact-info {
+    border-radius: 0 0 0.5rem 0.5rem;
   }
 }
 </style>

@@ -10,12 +10,13 @@ const routes = [
   { path: '/about', component: About },
   { path: '/plots', component: Plots },
   { path: '/localize', component: Localize },
-  { path: '/contact', component: Home }, // Contact redirects to Home for now
+  { path: '/contact', component: Home },
 ];
 
 const router = createRouter({
   history: createWebHistory('/terenuri_sabareni/'),
-  routes, // use the full array here
+  routes,
+  // The scrollBehavior function is now removed.
 });
 
 export default router;

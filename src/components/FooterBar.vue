@@ -14,6 +14,9 @@
     </div>
     <div class="footer-bottom">
       <span>powered by</span>
+      <a href="https://b-tech.ro/" target="_blank" rel="noopener noreferrer">
+        <img src="../../res/bTech.png" alt="Powered by logo" class="powered-by-logo">
+      </a>
     </div>
   </footer>
 </template>
@@ -29,29 +32,29 @@ export default {
   width: 100%;
   background: #111;
   color: #fff;
-  padding: 24px 0 8px 0;
+  padding: 1.2rem 0 0.4rem 0;
   position: relative;
 }
 .footer-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 32px;
+  padding: 0 1.6rem;
 }
 .footer-left .company {
-  font-size: 1.2em;
+  font-size: 0.96rem;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 0.4rem;
 }
 .footer-left .contact {
-  font-size: 0.95em;
-  margin-top: 4px;
+  font-size: 0.76rem;
+  margin-top: 0.2rem;
 }
 .footer-right {
   display: flex;
-  gap: 24px;
+  gap: 1.2rem;
   align-items: flex-start;
-  margin-top: 8px;
+  margin-top: 0.4rem;
 }
 .footer-right a {
   color: #fff;
@@ -59,9 +62,35 @@ export default {
   font-weight: 500;
 }
 .footer-bottom {
+  display: flex;
+  justify-content: center;
+  /* The key change: align-items to center for vertical alignment */
+  align-items: center;
   text-align: center;
-  margin-top: 24px;
-  font-size: 0.95em;
+  margin-top: 1.2rem;
+  font-size: 0.76rem;
   color: #bbb;
+}
+
+.powered-by-logo {
+  /* It's good practice to set a specific height to control its size */
+  height: 0.9rem; /* Adjust this value to match the text height better */
+  margin-left: 0.4rem; /* Reduced margin to keep it tight */
+}
+
+/* Media query for portrait mode on smaller screens */
+@media (orientation: portrait) {
+  .footer-top {
+    justify-content: space-between;
+  }
+  .footer-left {
+    margin-bottom: 0;
+  }
+  .footer-right {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+    margin-right: 0.5rem;
+  }
 }
 </style>

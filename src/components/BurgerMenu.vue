@@ -10,18 +10,29 @@
             <span class="material-symbols-outlined">arrow_right_alt</span>
           </button>
           <div class="drawer-links">
-            <router-link
-              v-for="link in links"
-              :key="link.to"
-              :to="link.to"
-              class="drawer-link"
-              :class="{ 'active-link': $route.path === link.to }"
-              @click.native="handleLinkClick(link.to)"
-              :tabindex="$route.path === link.to ? -1 : 0"
-              :aria-disabled="$route.path === link.to ? 'true' : 'false'"
-            >
-              {{ link.label }}
-            </router-link>
+            <template v-for="link in links">
+              <router-link
+                  v-if="link.label !== 'Contact'"
+                  :key="link.label"
+                  :to="link.to"
+                  class="drawer-link"
+                  :class="{ 'active-link': $route.path === link.to }"
+                  @click.native="toggleMenu"
+                  :tabindex="$route.path === link.to ? -1 : 0"
+                  :aria-disabled="$route.path === link.to ? 'true' : 'false'"
+              >
+                {{ link.label }}
+              </router-link>
+              <a
+                  v-else
+                  :key="'contact-link'"
+                  href="#"
+                  class="drawer-link"
+                  @click.prevent="handleContactClick"
+              >
+                {{ link.label }}
+              </a>
+            </template>
           </div>
         </nav>
       </div>
@@ -40,7 +51,7 @@ export default {
         { to: '/about', label: 'About' },
         { to: '/plots', label: 'Plots' },
         { to: '/localize', label: 'Localize' },
-        { to: '/contact', label: 'Contact' },
+        { to: '/home', label: 'Contact' },
       ],
     };
   },
@@ -57,10 +68,18 @@ export default {
     toggleMenu() {
       this.isOpen = !this.isOpen;
     },
-    handleLinkClick(to) {
-      if (this.$route.path === to) return; // Prevent navigation if already on page
+    handleContactClick() {
       this.toggleMenu();
-    },
+      this.$router.push('/home').then(() => {
+        this.$nextTick(() => {
+          const element = document.querySelector('#contactform');
+          if (element) {
+            const y = element.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (element.offsetHeight / 2);
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        });
+      });
+    }
   },
   beforeUnmount() {
     document.body.classList.remove('no-scroll');
@@ -71,22 +90,22 @@ export default {
 <style scoped>
 .burger-btn {
   position: fixed;
-  top: 16px;
-  right: 24px;
+  top: 1rem;
+  right: 1.5rem;
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3125rem;
   z-index: 1201;
 }
 .burger-btn span {
   display: block;
-  width: 30px;
-  height: 4px;
+  width: 1.875rem;
+  height: 0.25rem;
   background: #116b2f;
-  border-radius: 2px;
+  border-radius: 0.125rem;
 }
 .drawer-overlay {
   position: fixed;
@@ -114,24 +133,24 @@ export default {
 }
 
 .drawer-menu {
-  width: 260px;
+  width: 16.25rem;
   height: 100%;
   background: linear-gradient(to bottom left, rgba(35,39,47,1) 40%, rgba(35,39,47,0.0) 100%);
-  box-shadow: -2px 0 8px rgba(0,0,0,0.12);
+  box-shadow: -0.125rem 0 0.5rem rgba(0,0,0,0.12);
   display: flex;
   flex-direction: column;
-  padding: 32px 24px 24px 24px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
   position: relative;
-  animation: slideIn 0.2s;
+  animation: slideIn 0.4s;
 }
 .drawer-fade-leave-active .drawer-menu {
-  animation: slideOut 0.2s forwards;
+  animation: slideOut 0.4s forwards;
 }
 
 .arrow-btn-inside {
   position: absolute;
-  left: 12px;
-  top: 12px;
+  left: 0.75rem;
+  top: 0.75rem;
   background: none;
   border: none;
   font-size: 2em;
@@ -140,18 +159,18 @@ export default {
   z-index: 1300;
   padding: 0;
   margin: 0;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .material-symbols-outlined {
   font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
   font-family: 'Material Symbols Outlined', sans-serif;
   font-size: 1.4em;
   font-weight: normal;
@@ -162,16 +181,16 @@ export default {
 .drawer-links {
   display: flex;
   flex-direction: column;
-  margin-top: 56px;
+  margin-top: 3.5rem;
 }
 .drawer-link {
-  margin: 12px 0;
+  margin: 0.75rem 0;
   text-decoration: none;
   color: white;
   font-weight: 500;
   font-size: 1.1em;
-  padding-left: 24px;
-  transition: all 0.15s;
+  padding-left: 1.5rem;
+  transition: all 0.3s;
   cursor: pointer;
 }
 .drawer-link:hover {

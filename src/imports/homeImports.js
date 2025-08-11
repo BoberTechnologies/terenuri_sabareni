@@ -3,6 +3,7 @@ import BackgroundCard from '../components/BackgroundCard.vue'
 import Carousel from '../components/Carousel.vue'
 import EdgeStrip from '@/components/EdgeStrip.vue'
 import ContactForm from '../components/ContactForm.vue'
+import ImageCard from "@/components/ImageCard.vue";
 
 // Image imports
 import homeImage from '../../res/Home/Home_1.jpg'
@@ -35,6 +36,7 @@ export {
     Carousel,
     EdgeStrip,
     ContactForm,
+    ImageCard,
     homeImage,
     img6,
     img7,
