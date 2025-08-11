@@ -81,10 +81,8 @@
         width="50%"
         height="100%"
         :fade-stops="[
-        'rgba(0,0,0,0) 0%',
-        'rgba(0,0,0,1) 20%',
-        'rgba(0,0,0,1) 80%',
-        'rgba(0,0,0,0) 100%'
+        'rgba(0,0,0,1) 0%',
+        'rgba(0,0,0,1) 100%'
       ]"/>
     <background-card
         title=""
@@ -93,10 +91,8 @@
         width="50%"
         height="100%"
         :fade-stops="[
-        'rgba(0,0,0,0) 0%',
-        'rgba(0,0,0,1) 20%',
-        'rgba(0,0,0,1) 80%',
-        'rgba(0,0,0,0) 100%'
+        'rgba(0,0,0,1) 0%',
+        'rgba(0,0,0,1) 100%'
       ]"/>
     <ContactForm class="contact-form"/>
   </div>
@@ -196,15 +192,17 @@ import ImageCard from "@/components/ImageCard.vue";
 .form-class {
   display: flex;
   width: 100%;
-  height: 100vh; /* Full screen height */
+  height: 120vh; /* Full screen height */
   position: relative; /* To position form absolutely */
   margin-top: 10vh;
+  flex-wrap: nowrap; /* default: no wrap */
 }
 
-.form-class > *:not(.contact-form-overlay) {
+.form-class > *:not(.contact-form) {
   flex: 1; /* Make each BackgroundCard take half the width */
 }
 
+/* Position contact form centered above backgrounds */
 .contact-form {
   position: absolute;
   top: 50%;
@@ -233,6 +231,24 @@ import ImageCard from "@/components/ImageCard.vue";
   }
   .pop-image {
     width: 40vw;                 /* 40% of viewport width */
+  }
+  .form-class {
+    flex-direction: column !important;
+    height: auto; /* so it can expand vertically */
+  }
+
+  .form-class > *:not(.contact-form) {
+    flex: none;       /* override flex:1 to avoid forcing width */
+    width: 100% !important;   /* full width */
+    height: 70vh !important;     /* half viewport height each, adjust if you want */
+  }
+
+  /* Keep the contact form positioned in the middle */
+  .contact-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>

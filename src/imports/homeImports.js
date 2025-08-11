@@ -18,8 +18,8 @@ import house_black from '../../res/Home/House_black.png'
 import house_blue from '../../res/Home/House_blue.png'
 import house_yellow from '../../res/Home/House_yellow.png'
 
-import stair_left from '../../res/Home/stair_left.jpg'
-import stair_right from '../../res/Home/stair_right.jpg'
+import stair_left from '../../res/Home/typewritter.jpg'
+import stair_right from '../../res/Home/office.jpg'
 // Data
 const homeImages = [
     { image: img1, title: 'Utilitati pregatite', paragraph: 'Gaze naturale si energie electrica, fara griji sau batai de cap' },

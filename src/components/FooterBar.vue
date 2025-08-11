@@ -31,7 +31,6 @@ export default {
   color: #fff;
   padding: 24px 0 8px 0;
   position: relative;
-  margin-top: 48px;
 }
 .footer-top {
   display: flex;
