@@ -29,7 +29,6 @@ export default {
         height: this.height,
         overflow: 'hidden',
         borderRadius: '12px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
         textAlign: 'center',
         display: 'inline-block',
       };
@@ -47,6 +46,8 @@ export default {
   align-items: center;
   object-fit: cover;
   background: none;
+  margin: 1rem;
+  transition: transform 0.2s ease-in-out;
 }
 
 img {
@@ -54,6 +55,10 @@ img {
   height: auto;
   object-fit: cover;
   display: block;
+}
+
+.image-card:hover{
+  transform: scale(1.1);
 }
 
 .text-content {

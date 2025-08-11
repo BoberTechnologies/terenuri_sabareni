@@ -2,6 +2,7 @@
 import BackgroundCard from '../components/BackgroundCard.vue'
 import Carousel from '../components/Carousel.vue'
 import EdgeStrip from '@/components/EdgeStrip.vue'
+import ContactForm from '../components/ContactForm.vue'
 
 // Image imports
 import homeImage from '../../res/Home/Home_1.jpg'
@@ -12,6 +13,13 @@ import img4 from '../../res/Home/Home_4.jpg'
 import img5 from '../../res/Home/Home_5.jpg'
 import img6 from '../../res/Home/Home_6.jpg'
 import img7 from '../../res/Home/Home_7.jpg'
+
+import house_black from '../../res/Home/House_black.png'
+import house_blue from '../../res/Home/House_blue.png'
+import house_yellow from '../../res/Home/House_yellow.png'
+
+import stair_left from '../../res/Home/stair_left.jpg'
+import stair_right from '../../res/Home/stair_right.jpg'
 // Data
 const homeImages = [
     { image: img1, title: 'Utilitati pregatite', paragraph: 'Gaze naturale si energie electrica, fara griji sau batai de cap' },
@@ -26,8 +34,14 @@ export {
     BackgroundCard,
     Carousel,
     EdgeStrip,
+    ContactForm,
     homeImage,
     img6,
     img7,
-    homeImages
+    homeImages,
+    house_black,
+    house_blue,
+    house_yellow,
+    stair_left,
+    stair_right
 }

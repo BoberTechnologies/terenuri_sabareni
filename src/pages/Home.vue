@@ -58,10 +58,47 @@
     </div>
   </div>
 
-  <div>
-    <image-card image=""/>
-    <image-card image=""/>
-    <image-card image=""/>
+  <div class="pop-images">
+    <ImageCard :image="house_black" class="pop-image">
+      <template #title>Titlu1</template>
+      <template #paragraph>Text1</template>
+    </ImageCard>
+    <ImageCard :image="house_blue" class="pop-image">
+      <template #title>Titlu2</template>
+      <template #paragraph>Text2</template>
+    </ImageCard>
+    <ImageCard :image="house_yellow" class="pop-image">
+      <template #title>Titlu3</template>
+      <template #paragraph>Text3</template>
+    </ImageCard>
+  </div>
+
+  <div class="form-class">
+    <background-card
+        title=""
+        text=""
+        :background="stair_left"
+        width="50%"
+        height="100%"
+        :fade-stops="[
+        'rgba(0,0,0,0) 0%',
+        'rgba(0,0,0,1) 20%',
+        'rgba(0,0,0,1) 80%',
+        'rgba(0,0,0,0) 100%'
+      ]"/>
+    <background-card
+        title=""
+        text=""
+        :background="stair_right"
+        width="50%"
+        height="100%"
+        :fade-stops="[
+        'rgba(0,0,0,0) 0%',
+        'rgba(0,0,0,1) 20%',
+        'rgba(0,0,0,1) 80%',
+        'rgba(0,0,0,0) 100%'
+      ]"/>
+    <ContactForm class="contact-form"/>
   </div>
 
 </template>
@@ -71,10 +108,16 @@ import {
     BackgroundCard,
     Carousel,
     EdgeStrip,
+    ContactForm,
     homeImage,
     img6,
     img7,
-    homeImages
+    homeImages,
+    house_black,
+    house_blue,
+    house_yellow,
+    stair_left,
+    stair_right,
 } from '../imports//homeImports.js'
 import ImageCard from "@/components/ImageCard.vue";
 </script>
@@ -135,6 +178,41 @@ import ImageCard from "@/components/ImageCard.vue";
   overflow: hidden;
 }
 
+.pop-images{
+  margin-top: 20vh;
+  display: flex;
+  overflow-x: hidden;
+  width: 100%;
+  gap: 15vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop-image{
+  align-self: center;
+  width: 12vw;
+}
+
+.form-class {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  position: relative; /* To position form absolutely */
+  margin-top: 10vh;
+}
+
+.form-class > *:not(.contact-form-overlay) {
+  flex: 1; /* Make each BackgroundCard take half the width */
+}
+
+.contact-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Above background cards */
+}
+
 @media (orientation: portrait) {
   .section-image {
     width: 100vw;
@@ -146,10 +224,15 @@ import ImageCard from "@/components/ImageCard.vue";
   .section-content p{
     display: inline-block;
   }
-
   .filler-image {
     width: 100vw;
   }
+  .pop-images {
+    flex-direction: column;      /* stack vertically */
+    gap: 5vh;                    /* vertical gap between cards */
+  }
+  .pop-image {
+    width: 40vw;                 /* 40% of viewport width */
+  }
 }
-
 </style>
