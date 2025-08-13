@@ -4,7 +4,7 @@
       <BackgroundCard
           title=""
           text=""
-          :background="stair_right"
+          :background="bg"
           width="100%"
           height="100vh"
           :fade-stops="[
@@ -28,20 +28,19 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-import {stair_right} from "@/imports/homeImports.js";
+import bg from "../../res/Home/office.jpg";
 import BackgroundCard from "@/components/BackgroundCard.vue";
 
 export default {
   name: 'AboutPage',
   components: {BackgroundCard},
   computed: {
-    stair_right() {
-      return stair_right
+    bg() {
+      return bg
     }
   },
 };
@@ -119,7 +118,7 @@ export default {
   line-height: 1.6;
 }
 
-@media (max-width: 768px) {
+@media (orientation: portrait) {
   .title {
     font-size: 2.5rem;
   }
