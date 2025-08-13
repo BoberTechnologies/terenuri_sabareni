@@ -75,12 +75,12 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  overflow: hidden;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
   transition: 0.3s ease;
   margin:1.2rem;
+  overflow: visible;
 }
 .price-card:hover {
   transform: scale(1.1);
@@ -131,20 +131,23 @@ onBeforeUnmount(() => {
   right: 0;
   background: rgba(0, 0, 0, 0.85);
   color: white;
-  padding: 0.4rem 0.6rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 0.4rem;
   font-size: 0.8rem;
-  white-space: nowrap;
+  white-space: normal;       /* allow text to wrap */
+  word-wrap: break-word;     /* break long words if necessary */
   z-index: 10;
+  width: 1000%;
 }
 
 .tooltip::after {
   content: "";
   position: absolute;
   top: 100%;
-  right: 0.4rem;
+  right: 0.8rem;
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
 }
+
 </style>

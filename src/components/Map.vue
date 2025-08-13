@@ -86,9 +86,10 @@ function initMap() {
           : [0, 0]
 
   map = L.map(mapContainer.value, { center: initialCenter, zoom: props.zoom })
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 19,
+    zoom: 14,
+    maxZoom: 18,
   }).addTo(map)
 
   markerCluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 50 })
