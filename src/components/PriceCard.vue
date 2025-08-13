@@ -3,10 +3,18 @@
     <img :src="image" alt="Card image" class="card-image" />
 
     <div class="card-bottom">
-      <span class="price-text">{{ value }}€/mp</span>
+      <span class="price-text">{{ value }}€/m.p.</span>
 
-      <div class="info-wrapper">
-        <span class="info-icon" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">i</span>
+      <div class="info-wrapper" ref="infoWrapper">
+        <span
+            class="info-icon"
+            @mouseenter="onHover(true)"
+            @mouseleave="onHover(false)"
+            @click="onClickToggle"
+        >
+          i
+        </span>
+
         <div v-if="showTooltip" class="tooltip">
           {{ tooltip }}
         </div>
@@ -16,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const props = defineProps({
   image: { type: String, required: true },
@@ -25,6 +33,41 @@ const props = defineProps({
 });
 
 const showTooltip = ref(false);
+const infoWrapper = ref(null);
+
+function isTouchDevice() {
+  return window.matchMedia("(pointer: coarse)").matches;
+}
+
+// Desktop hover handlers
+function onHover(state) {
+  if (!isTouchDevice()) {
+    showTooltip.value = state;
+  }
+}
+
+// Mobile click toggle
+function onClickToggle(e) {
+  if (isTouchDevice()) {
+    e.stopPropagation(); // prevent global click from closing immediately
+    showTooltip.value = !showTooltip.value;
+  }
+}
+
+// Hide tooltip when clicking outside (mobile)
+function handleClickOutside(e) {
+  if (isTouchDevice() && infoWrapper.value && !infoWrapper.value.contains(e.target)) {
+    showTooltip.value = false;
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
 
 <style scoped>
@@ -37,9 +80,8 @@ const showTooltip = ref(false);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
   transition: 0.3s ease;
-  margin: 1.2rem;
+  margin:1.2rem;
 }
-
 .price-card:hover {
   transform: scale(1.1);
 }
@@ -74,10 +116,11 @@ const showTooltip = ref(false);
   justify-content: center;
   width: 1.4rem;
   height: 1.4rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #f8f8f8;
+  color: gray;
   border-radius: 50%;
-  font-size: 0.9rem;
+  border: 0.15rem solid gray;
+  font-size: 1rem;
   cursor: pointer;
   user-select: none;
 }
@@ -93,7 +136,6 @@ const showTooltip = ref(false);
   font-size: 0.8rem;
   white-space: nowrap;
   z-index: 10;
-  transform: translateY(-2px);
 }
 
 .tooltip::after {

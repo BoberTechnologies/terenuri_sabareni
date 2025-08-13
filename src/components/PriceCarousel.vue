@@ -61,7 +61,7 @@ function scrollRight() {
   overflow-x: auto;
   scroll-behavior: smooth;
   width: 100%;
-  gap: 10vw;
+  gap: 7vw;
   padding: 0 5vw;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -73,9 +73,10 @@ function scrollRight() {
 
 .custom-card {
   flex-shrink: 0;
-  box-sizing: border-box;
-  width: max(20vw, 20vh);
-  height: 30vh; /* Card height */
+  width: 20vw;          /* Controls card size */
+  aspect-ratio: 3 / 2;   /* Width : Height ratio → stays consistent */
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .nav-icon-button {
@@ -108,5 +109,15 @@ function scrollRight() {
 
 .right-button {
   right: 2rem;
+}
+
+@media (orientation: portrait){
+  .custom-card {
+    width: 50vw;
+  }
+
+  .image-series {
+    gap:15vw;
+  }
 }
 </style>

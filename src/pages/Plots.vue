@@ -27,10 +27,72 @@
     </div>
 
     <!-- PRICE CAROUSEL SECTION -->
-    <section class="carousel-section">
-      <h2 class="carousel-heading">Available Plots</h2>
-      <PriceCarousel :cards="cardData" />
-    </section>
+    <h2 class="carousel-heading">Available Plots</h2>
+
+    <div class="teren1">
+      <div class="section-content">
+        <div class="section-image">
+          <BackgroundCard title="Sectiune"
+                          text="O noua Sectiune"
+                          :background="img6"
+                          height="100%"
+                          width="100%"
+                          :fade-stops="[
+          'rgba(0,0,0,0) 0%',
+          'rgba(0,0,0,1) 50%',
+          'rgba(0,0,0,0) 100%']"
+          />
+        </div>
+        <p>Some test text</p>
+      </div>
+      <section class="carousel-section">
+        <PriceCarousel :cards="cardData" />
+      </section>
+    </div>
+
+    <div class="teren2">
+      <div class="section-content">
+        <div class="section-image">
+          <BackgroundCard title="Sectiune"
+                          text="O noua Sectiune"
+                          :background="img6"
+                          height="100%"
+                          width="100%"
+                          :fade-stops="[
+          'rgba(0,0,0,0) 0%',
+          'rgba(0,0,0,1) 50%',
+          'rgba(0,0,0,0) 100%']"
+          />
+        </div>
+        <p>Some test text</p>
+      </div>
+      <section class="carousel-section">
+        <PriceCarousel :cards="cardData" />
+      </section>
+    </div>
+
+    <div class="teren3">
+      <div class="section-content">
+        <div class="section-image">
+          <BackgroundCard title="Sectiune"
+                          text="O noua Sectiune"
+                          :background="img6"
+                          height="100%"
+                          width="100%"
+                          :fade-stops="[
+          'rgba(0,0,0,0) 0%',
+          'rgba(0,0,0,1) 50%',
+          'rgba(0,0,0,0) 100%']"
+          />
+        </div>
+        <p>Some test text</p>
+      </div>
+      <section class="carousel-section">
+        <PriceCarousel :cards="cardData" />
+      </section>
+    </div>
+
+
   </div>
 </template>
 
@@ -38,6 +100,7 @@
 import Street from '@/../res/Home/street.jpg';
 import BackgroundCard from "@/components/BackgroundCard.vue";
 import PriceCarousel from "@/components/PriceCarousel.vue";
+import {img6} from "@/imports/homeImports.js";
 
 export default {
   name: 'PlotsPage',
@@ -48,14 +111,11 @@ export default {
         { image: Street, value: "30", tooltip: "Basic package" },
         { image: Street, value: "45", tooltip: "Premium package" },
         { image: Street, value: "50", tooltip: "Luxury finish" }
-      ]
+      ],
+      img6: img6,
+      Street: Street,
     }
   },
-  computed: {
-    Street() {
-      return Street;
-    }
-  }
 };
 </script>
 
@@ -119,13 +179,37 @@ export default {
 .carousel-section {
   position: relative;
   padding: 3rem 0;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 
 .carousel-heading {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
   font-size: 2rem;
   color: #333;
+}
+
+.section-image {
+  height: 50vh;
+  width: 50vw;
+  flex-shrink: 0; /* don't shrink the image container */
+  background: rgba(255, 255, 255, 0.1);
+}
+.section-content {
+  display: flex;
+  width: 100%;
+  height: 100%; /* make sure container fills viewport height */
+}
+
+.section-content p{
+  flex: 1;
+  font-size: 1.2rem;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
 }
 
 @media (orientation: portrait) {
@@ -144,6 +228,16 @@ export default {
   }
   .paragraph {
     font-size: 0.9rem;
+  }
+  .section-image {
+    width: 100vw;
+    height: 40vh;
+  }
+  .section-content{
+    display: block;
+  }
+  .section-content p{
+    display: inline-block;
   }
 }
 </style>
