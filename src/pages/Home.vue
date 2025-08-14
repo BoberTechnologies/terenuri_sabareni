@@ -36,10 +36,10 @@
   </div>
 
   <div class="strips-content">
-    <EdgeStrip right-text="" center-text="Despre" to="/about"/>
-    <EdgeStrip right-text="" center-text="Terenuri" to="/plots"/>
-    <EdgeStrip right-text="" center-text="Localizare" to="localize"/>
-    <EdgeStrip right-text="" center-text="Contact" scroll-to-contact/>
+    <EdgeStrip right-text="Află mai multe despre proiect" center-text="Despre" to="/about"/>
+    <EdgeStrip right-text="Vezi lista terenurilor disponibile" center-text="Terenuri" to="/plots"/>
+    <EdgeStrip right-text="Descoperă localizarea pe hartă" center-text="Localizare" to="localize"/>
+    <EdgeStrip right-text="Contactează-ne rapid" center-text="Contact" scroll-to-contact/>
   </div>
 
   <div class="filler-content">

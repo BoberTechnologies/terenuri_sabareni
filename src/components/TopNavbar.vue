@@ -1,6 +1,6 @@
 <template>
   <nav class="top-navbar">
-    <h4>Terenuri Sabareni</h4>
+    <h3>Terenuri Sabareni</h3>
 
     <slot />
   </nav>
@@ -29,8 +29,8 @@ export default {
   z-index: 1000;
 }
 
-h4{
+h3{
   color: white;
-  font-family: cursive;
+  font-size: 1.3rem;
 }
 </style>
