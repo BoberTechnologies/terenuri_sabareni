@@ -1,6 +1,6 @@
 <template>
   <nav class="top-navbar">
-    <h3>Terenuri Sabareni</h3>
+    <h3 @click="$router.push('/')" style="cursor:pointer">Terenuri Sabareni</h3>
 
     <slot />
   </nav>
