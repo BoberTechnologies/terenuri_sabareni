@@ -1,5 +1,5 @@
 <template>
-  <div class="price-card">
+  <div class="price-card" ref="cardRef">
     <img :src="image" alt="Card image" class="card-image" />
 
     <div class="card-bottom">
@@ -14,17 +14,23 @@
         >
           i
         </span>
-
-        <div v-if="showTooltip" class="tooltip">
-          {{ tooltip }}
-        </div>
       </div>
     </div>
+    <!-- Teleport the tooltip to body -->
+    <teleport to="body">
+      <div
+        v-if="showTooltip"
+        class="tooltip teleport-tooltip"
+        :style="tooltipStyle"
+      >
+        {{ tooltip }}
+      </div>
+    </teleport>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 
 const props = defineProps({
   image: { type: String, required: true },
@@ -34,6 +40,8 @@ const props = defineProps({
 
 const showTooltip = ref(false);
 const infoWrapper = ref(null);
+const cardRef = ref(null);
+const tooltipStyle = ref({});
 
 function isTouchDevice() {
   return window.matchMedia("(pointer: coarse)").matches;
@@ -60,6 +68,24 @@ function handleClickOutside(e) {
     showTooltip.value = false;
   }
 }
+
+function updateTooltipPosition() {
+  nextTick(() => {
+    if (!showTooltip.value || !cardRef.value) return;
+    const cardRect = cardRef.value.getBoundingClientRect();
+    tooltipStyle.value = {
+      position: 'absolute',
+      left: cardRect.left + window.scrollX + 'px',
+      top: (cardRect.top + window.scrollY - 48) + 'px', // 48px above card, adjust as needed
+      width: cardRect.width + 'px',
+      zIndex: 1000
+    };
+  });
+}
+
+watch(showTooltip, (val) => {
+  if (val) updateTooltipPosition();
+});
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
@@ -103,7 +129,6 @@ onBeforeUnmount(() => {
 
 .price-text {
   font-weight: bold;
-  font-size: 1rem;
 }
 
 .info-wrapper {
@@ -120,34 +145,29 @@ onBeforeUnmount(() => {
   color: gray;
   border-radius: 50%;
   border: 0.15rem solid gray;
-  font-size: 1rem;
   cursor: pointer;
   user-select: none;
 }
 
 .tooltip {
-  position: absolute;
-  bottom: 150%;
-  right: 0;
+  /* Remove position, bottom, right, width from here for teleport */
   background: rgba(0, 0, 0, 0.85);
   color: white;
   padding: 0.6rem 0.8rem;
   border-radius: 0.4rem;
   font-size: 0.8rem;
-  white-space: normal;       /* allow text to wrap */
-  word-wrap: break-word;     /* break long words if necessary */
+  white-space: normal;
+  word-wrap: break-word;
   z-index: 10;
-  width: 1000%;
+  box-sizing: border-box;
 }
-
-.tooltip::after {
+.teleport-tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
-  right: 0.8rem;
+  left: 1.2rem;
+  bottom: -10px;
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
 }
-
 </style>

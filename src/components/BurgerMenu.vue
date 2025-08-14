@@ -1,13 +1,13 @@
 <template>
   <div>
     <button v-if="!isOpen" class="burger-btn" @click="toggleMenu">
-      <span></span><span></span><span></span>
+      <span class="burger-icon">&#9776;</span>
     </button>
     <transition name="drawer-fade">
       <div v-if="isOpen" class="drawer-overlay" @click.self="toggleMenu">
         <nav class="drawer-menu" :class="{ 'drawer-fade-leave-active': !isOpen }">
           <button class="arrow-btn-inside" @click="toggleMenu">
-            <span class="material-symbols-outlined">arrow_right_alt</span>
+            <span class="material-symbols-outlined">➜</span>
           </button>
           <div class="drawer-links">
             <template v-for="link in links">
@@ -47,11 +47,11 @@ export default {
     return {
       isOpen: false,
       links: [
-        { to: '/home', label: 'Home' },
+        { to: '/', label: 'Home' },
         { to: '/about', label: 'About' },
         { to: '/plots', label: 'Plots' },
         { to: '/localize', label: 'Localize' },
-        { to: '/home', label: 'Contact' },
+        { to: '/', label: 'Contact' },
       ],
     };
   },
@@ -70,7 +70,7 @@ export default {
     },
     handleContactClick() {
       this.toggleMenu();
-      this.$router.push('/home').then(() => {
+      if (this.$route.path === '/') {
         this.$nextTick(() => {
           const element = document.querySelector('#contactform');
           if (element) {
@@ -78,7 +78,18 @@ export default {
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
         });
-      });
+      } else {
+        this.$router.push('/').then(() => {
+          // Use a short delay to ensure DOM is rendered
+          setTimeout(() => {
+            const element = document.querySelector('#contactform');
+            if (element) {
+              const y = element.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (element.offsetHeight / 2);
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }, 400);
+        });
+      }
     }
   },
   beforeUnmount() {
@@ -100,12 +111,13 @@ export default {
   gap: 0.3125rem;
   z-index: 1201;
 }
-.burger-btn span {
+.burger-icon {
+  font-size: 2.2rem;
+  color: #116b2f;
   display: block;
-  width: 1.875rem;
-  height: 0.25rem;
-  background: #116b2f;
-  border-radius: 0.125rem;
+  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .drawer-overlay {
   position: fixed;
@@ -153,7 +165,6 @@ export default {
   top: 0.75rem;
   background: none;
   border: none;
-  font-size: 2em;
   color: #333;
   cursor: pointer;
   z-index: 1300;
@@ -172,10 +183,8 @@ export default {
       'GRAD' 0,
       'opsz' 24;
   font-family: 'Material Symbols Outlined', sans-serif;
-  font-size: 1.4em;
   font-weight: normal;
   vertical-align: middle;
-  line-height: 1;
   color: #116b2f;
 }
 .drawer-links {
@@ -188,7 +197,6 @@ export default {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  font-size: 1.1em;
   padding-left: 1.5rem;
   transition: all 0.3s;
   cursor: pointer;

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import bg from "../../res/Home/office.jpg";
+import bg from "../../res/7575119.svg";
 import BackgroundCard from "@/components/BackgroundCard.vue";
 
 export default {
@@ -70,29 +70,17 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
-.title {
-  font-size: 4rem;
-  margin: 0;
-  pointer-events: auto;
+  width: 100%;
 }
 .text-content {
   display: block;
   position: absolute;
-  top: 40%; /* Changed from `bottom` to `top` */
+  top: 40%;
   left: 5%;
   width: 90%;
   max-height: 100%;
   text-align: left;
   pointer-events: auto;
-}
-.subtitle {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-.paragraph {
-  font-size: 1rem;
-  line-height: 1.6;
 }
 .about-content {
   background-color: #f8f8f8;
@@ -106,21 +94,12 @@ export default {
 }
 
 @media (orientation: portrait) {
-  .title {
-    font-size: 2.5rem;
-  }
   .text-content {
     width: 90%;
     left: 5%;
-    top: 50%; /* Adjusted for mobile */
-    transform: translateY(-50%); /* Center vertically on mobile */
+    top: 50%;
+    transform: translateY(-50%);
     max-height: 40%;
-  }
-  .subtitle {
-    font-size: 1.5rem;
-  }
-  .paragraph {
-    font-size: 0.9rem;
   }
 }
 </style>

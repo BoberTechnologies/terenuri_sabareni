@@ -22,11 +22,21 @@ export default {
     to: String,
     background: { type: String, default: '#f6fff6' },
     color: { type: String, default: '#222' },
+    scrollToContact: { type: Boolean, default: false },
   },
   setup(props){
     const router = useRouter()
     const navigate = () => {
-      if (props.to) router.push(props.to)
+      if (props.scrollToContact) {
+        // Scroll to contact form
+        const element = document.querySelector('#contactform');
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (element.offsetHeight / 2);
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      } else if (props.to) {
+        router.push(props.to)
+      }
     }
     return { arrow, navigate }
   },
@@ -90,14 +100,12 @@ export default {
 }
 
 .strip-center {
-  font-size: 1.2em;
   font-weight: bold;
   text-align: left;
   flex: 2;
   padding-left: 5rem;
 }
 .strip-right {
-  font-size: 1em;
   text-align: left;
   flex: 1;
   justify-content: start;

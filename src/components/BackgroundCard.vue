@@ -81,10 +81,15 @@ export default {
   padding: 2rem !important;
 }
 
+.background-card .content h2 {
+  /* Remove local font styles, use global .title or .subtitle if needed */
+  margin: 0 0 0.5em 0;
+}
+
 .background-card .content p {
+  /* Remove local font styles, use global .paragraph */
   margin-top: 0.5rem;
   margin-bottom: 0;
-  font-size: 1rem;
   line-height: 1.4;
   overflow: visible;
   text-align: left;

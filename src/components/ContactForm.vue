@@ -108,14 +108,25 @@ function handleSubmit() {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+@font-face {
+  font-family: 'Nunito';
+  src: url('@/../res/fonts/Nunito-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('@/../res/fonts/Nunito-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 .contact-container {
+  font-family: 'Nunito', Arial, sans-serif;
   display: flex;
   max-width: 75rem;
   margin: 3rem auto;
   gap: 0;
-  font-family: 'Nunito', sans-serif;
   background: transparent;
   min-height: 31.25rem;
   width: 80%; /* Keeping your requested width */
@@ -142,7 +153,6 @@ function handleSubmit() {
 }
 
 .contactus-head {
-  font-size: 1.6rem;
   font-weight: 700;
 }
 
@@ -175,7 +185,6 @@ function handleSubmit() {
 .input {
   height: 2rem;
   padding: 0.25rem 0.625rem;
-  font-size: 1rem;
   border: 2px solid #a2a2a2;
   border-radius: 0.25rem;
   outline: none;
@@ -188,7 +197,6 @@ function handleSubmit() {
 
 .textinput {
   padding: 0.75rem;
-  font-size: 1rem;
   border: 2px solid #a2a2a2;
   border-radius: 0.25rem;
   min-height: 10rem;
@@ -213,7 +221,6 @@ function handleSubmit() {
   background-color: #1c3b28;
   color: white;
   font-weight: 700;
-  font-size: 1rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -229,7 +236,6 @@ function handleSubmit() {
   margin-top: 1rem;
   font-weight: 600;
   text-align: center;
-  font-size: 0.875rem;
 }
 
 /* Contact Info Panel */
@@ -239,7 +245,6 @@ function handleSubmit() {
   padding: 2.5rem 2rem;
   border-radius: 0 0.5rem 0.5rem 0;
   box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
-  font-size: 0.9rem;
   line-height: 1.4;
   display: flex;
   flex-direction: column;
@@ -258,7 +263,6 @@ function handleSubmit() {
 .contact-info h3 {
   margin-bottom: 1rem;
   font-weight: 700;
-  font-size: 1.2rem;
 }
 
 .contact-info p {

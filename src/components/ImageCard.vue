@@ -68,14 +68,12 @@ img {
 }
 
 .image-title {
-  font-size: 1.2rem;
   font-weight: 600;
   font-family: "Bitter",serif;
   text-align: center;
 }
 
 .image-paragraph {
-  font-size: 1rem;
   color: #444;
   font-family: Merriweather,serif;
   text-align: justify;

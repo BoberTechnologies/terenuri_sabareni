@@ -57,7 +57,6 @@ export default {
   justify-content: space-between;
   padding: 0 16px;
   font-weight: 500;
-  font-size: 1.1em;
 }
 .footer-left {
   color: #333;

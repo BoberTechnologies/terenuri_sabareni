@@ -22,7 +22,7 @@
     <div class="section-image">
       <BackgroundCard title="Dezvoltare imobiliara"
                       text="Loturi cu utilități, drum amenajat și autorizații. Acces rapid spre București."
-                      :background="img6"
+                      :background="harta"
                       height="100%"
                       width="100%"
                       :fade-stops=" [
@@ -32,7 +32,14 @@
     'rgba(0,0,0,0) 100%']"
       />
     </div>
-    <p style="font-size:20px">Parcelele respectă normele urbanistice și permit obținerea rapidă a autorizației de construire.</p>
+    <p>Parcelele respectă normele urbanistice și permit obținerea rapidă a autorizației de construire.</p>
+  </div>
+
+  <div class="strips-content">
+    <EdgeStrip right-text="" center-text="Despre" to="/about"/>
+    <EdgeStrip right-text="" center-text="Terenuri" to="/plots"/>
+    <EdgeStrip right-text="" center-text="Localizare" to="localize"/>
+    <EdgeStrip right-text="" center-text="Contact" scroll-to-contact/>
   </div>
 
   <div class="filler-content">
@@ -93,6 +100,8 @@
 </template>
 
 <script setup>
+import { onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import {
   BackgroundCard,
   Carousel,
@@ -108,12 +117,34 @@ import {
   house_yellow,
   stair_left,
   stair_right,
+  harta
 } from '../imports//homeImports.js'
 
+const route = useRoute();
+
+function scrollToContactForm() {
+  const element = document.querySelector('#contactform');
+  if (element) {
+    const y = element.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (element.offsetHeight / 2);
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
+onMounted(() => {
+  if (route.query.contact) {
+    setTimeout(scrollToContactForm, 350);
+  }
+});
+
+watch(
+  () => route.query.contact,
+  (val) => {
+    if (val) setTimeout(scrollToContactForm, 350);
+  }
+);
 </script>
 
 <style scoped>
-
 .home-container {
   display: flex;
   flex-direction: column;
@@ -138,7 +169,6 @@ import {
 
 .section-content p{
   flex: 1;
-  font-size: 1.2rem;
   align-self: center;
   text-align: center;
   justify-content: center;
@@ -179,7 +209,7 @@ import {
 }
 
 .pop-image{
-  align-self: center;
+  align-self: flex-start;
   width: 12vw;
 }
 
@@ -216,6 +246,7 @@ import {
   }
   .section-content p{
     display: inline-block;
+    margin-top: 5vh;
   }
   .filler-image {
     width: 100vw;
@@ -225,6 +256,7 @@ import {
     gap: 5vh;                    /* vertical gap between cards */
   }
   .pop-image {
+    align-self: center;
     width: 40vw;                 /* 40% of viewport width */
   }
   .form-class {

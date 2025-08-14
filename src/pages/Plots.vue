@@ -108,7 +108,11 @@ import {
   teren2_pret,
   teren3_pret,
   BackgroundCard,
-  PriceCarousel } from "@/imports/plotsImports.js";
+  PriceCarousel,
+  Teren1_1, Teren1_2, Teren1_3, Teren1_4, Teren1_5, Teren1_6, Teren1_7, Teren1_8, Teren1_9, Teren1_10,
+  teren2_1, teren2_2, teren2_3,
+  Teren3_1, Teren3_2, Teren3_3, Teren3_4, Teren3_5, Teren3_6, Teren3_7, Teren3_8, Teren3_9
+} from "@/imports/plotsImports.js";
 
 export default {
   name: 'PlotsPage',
@@ -120,31 +124,32 @@ export default {
       teren2_pret: teren2_pret,
       teren3_pret: teren3_pret,
       cardData1: [
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        {  image: Street, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_1, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_2, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_3, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_4, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_5, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_6, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_7, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_8, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_9, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren1_10, value: "26", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
       ],
       cardData2: [
-        { image: Street, value: "28", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "28", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "28", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: teren2_1, value: "28", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: teren2_2, value: "28", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: teren2_3, value: "28", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
       ],
       cardData3: [
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
-        { image: Street, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_1, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_2, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_3, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_4, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_5, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_6, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_7, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_8, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
+        { image: Teren3_9, value: "43", tooltip: "Prețurile sunt ușor negociabile în funcție de numărul de loturi achiziționate, modalitatea și rapiditatea plății. Se pot încheia precontracte cu plata unui avans pentru achiziție ulterioară." },
       ],
     }
   },
@@ -168,7 +173,7 @@ export default {
   position: absolute;
   inset: 0;
   color: white;
-  padding: 20px;
+  padding: 2rem;
   box-sizing: border-box;
   pointer-events: none;
 }
@@ -179,6 +184,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 100%;
 }
 
 .title {
@@ -198,28 +204,25 @@ export default {
 }
 
 .subtitle {
-  font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .paragraph {
   font-size: 1rem;
-  line-height: 1.6;
 }
 
 /* PRICE CAROUSEL SECTION */
 .carousel-section {
   position: relative;
   padding: 3rem 0;
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .carousel-heading {
   text-align: center;
   margin-top: 10rem;
   margin-bottom: 10rem;
-  font-size: 2rem;
   color: #333;
 }
 
@@ -237,29 +240,21 @@ export default {
 
 .section-content p{
   flex: 1;
-  font-size: 1.2rem;
   align-self: center;
   text-align: center;
   justify-content: center;
   display: flex;
+  font-size: 1.2rem;
+  font-weight: 600 ;
 }
 
 @media (orientation: portrait) {
-  .title {
-    font-size: 2.5rem;
-  }
   .text-content {
     width: 90%;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
     max-height: 40%;
-  }
-  .subtitle {
-    font-size: 1.5rem;
-  }
-  .paragraph {
-    font-size: 0.9rem;
   }
   .section-image {
     width: 100vw;
@@ -269,7 +264,12 @@ export default {
     display: block;
   }
   .section-content p{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 5rem;
   }
 }
 </style>

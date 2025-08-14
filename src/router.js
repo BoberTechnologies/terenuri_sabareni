@@ -6,7 +6,6 @@ import Home from './pages/Home.vue';
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/home', component: Home },
   { path: '/about', component: About },
   { path: '/plots', component: Plots },
   { path: '/localize', component: Localize },
@@ -16,7 +15,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory('/terenuri_sabareni/'),
   routes,
-  // The scrollBehavior function is now removed.
+  scrollBehavior(to, from, savedPosition) {
+    // Always scroll to top
+    return { top: 0 };
+  },
 });
 
 export default router;

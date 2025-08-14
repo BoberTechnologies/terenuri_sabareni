@@ -6,6 +6,7 @@ import ContactForm from '../components/ContactForm.vue'
 import ImageCard from "@/components/ImageCard.vue";
 
 // Image imports
+import harta from '../../res/denumiri.jpg'
 import homeImage from '../../res/Home/Home_1.jpg'
 import img1 from '../../res/Home/Home_1.jpg'
 import img2 from '../../res/Home/Home_2.jpg'
@@ -45,5 +46,6 @@ export {
     house_blue,
     house_yellow,
     stair_left,
-    stair_right
+    stair_right,
+    harta
 }

@@ -13,7 +13,6 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import 'leaflet.markercluster'
-
 import customPinUrl from '../../res/icons/pin.svg'
 
 const props = defineProps({
@@ -55,9 +54,7 @@ function addMarkers() {
 
   props.pins.forEach(pin => {
     const m = L.marker([pin.lat, pin.lng], { icon: createIcon(), title: pin.label || '' })
-
     if (pin.label) m.bindPopup(pin.label)
-
     m.on('add', () => {
       const el = m.getElement()
       if (el) {
@@ -65,14 +62,11 @@ function addMarkers() {
         if (labelEl) labelEl.textContent = pin.label || ''
       }
     })
-
     m.on('click', () => openDirections(pin.lat, pin.lng, pin.label))
     markerCluster.addLayer(m)
     bounds.extend([pin.lat, pin.lng])
   })
-
   markerCluster.addTo(map)
-
   if (props.pins.length > 0) {
     setTimeout(() => map.flyToBounds(bounds.pad(0.1), { animate: true, duration: 1.2 }), 0)
   }
@@ -84,14 +78,12 @@ function initMap() {
       : props.pins[0]
           ? [props.pins[0].lat, props.pins[0].lng]
           : [0, 0]
-
   map = L.map(mapContainer.value, { center: initialCenter, zoom: props.zoom })
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: '&copy; OpenStreetMap contributors',
     zoom: 14,
     maxZoom: 18,
   }).addTo(map)
-
   markerCluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 50 })
   addMarkers()
   nextTick(() => setTimeout(() => map.invalidateSize(), 0))
@@ -115,21 +107,14 @@ watch(() => props.pins, () => addMarkers(), { deep: true })
   height: 40px;
   transform-origin: center bottom;
 }
+</style>
 
+<style>
 .marker-label {
   text-align: center;
-  font-size: 12px;
-  color: black;
+  color: #222;
   margin-top: -10px;
-}
-
-.pulse {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.6; }
-  100% { transform: scale(1); opacity: 1; }
+  font-weight: 800;
+  text-shadow: 0 1px 2px #fff, 0 0 1px #fff;
 }
 </style>

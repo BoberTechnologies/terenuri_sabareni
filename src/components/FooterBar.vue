@@ -42,12 +42,12 @@ export default {
   padding: 0 1.6rem;
 }
 .footer-left .company {
-  font-size: 0.96rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
 .footer-left .contact {
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   margin-top: 0.2rem;
 }
 .footer-right {
@@ -63,19 +63,26 @@ export default {
 }
 .footer-bottom {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  /* The key change: align-items to center for vertical alignment */
   align-items: center;
   text-align: center;
   margin-top: 1.2rem;
-  font-size: 0.76rem;
   color: #bbb;
+  gap: 0.5rem;
+}
+
+.footer-bottom span,
+.footer-bottom a {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.7rem;
 }
 
 .powered-by-logo {
-  /* It's good practice to set a specific height to control its size */
-  height: 0.9rem; /* Adjust this value to match the text height better */
-  margin-left: 0.4rem; /* Reduced margin to keep it tight */
+  height: 1rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
 }
 
 /* Media query for portrait mode on smaller screens */
