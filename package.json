@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && copyfiles dist/index.html dist/404.html && gh-pages -d dist"
+    "deploy": "npm run build && node -e \"require('fs').copyFileSync('dist/index.html', 'dist/404.html')\" && gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",

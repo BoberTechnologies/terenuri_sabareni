@@ -12,11 +12,11 @@ const routes = [
   { path: '/contact', component: Home },
 ];
 
+// Use the same base as your GitHub Pages repo name
 const router = createRouter({
-  history: createWebHistory('/terenuri_sabareni/'),
+  history: createWebHistory(import.meta.env.BASE_URL || '/terenuri_sabareni/'),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    // Always scroll to top
+  scrollBehavior() {
     return { top: 0 };
   },
 });
