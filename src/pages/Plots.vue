@@ -188,7 +188,6 @@ export default {
 }
 
 .title {
-  font-size: 4rem;
   margin: 0;
   pointer-events: auto;
 }
