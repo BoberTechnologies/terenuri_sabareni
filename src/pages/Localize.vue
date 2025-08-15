@@ -4,7 +4,10 @@
     <div class="content">
       <h1>Descoperă locațiile proiectului</h1>
       <p>
-        Vizualizează pe hartă principalele puncte de interes din cadrul complexului imobiliar. Selectează orice locație pentru a primi indicații de orientare și detalii despre accesibilitate.
+        Vizualizează pe hartă principalele puncte de interes din cadrul complexului imobiliar. 
+      </p>
+      <p>
+        Selectează orice locație pentru a primi indicații de orientare și detalii despre accesibilitate.
       </p>
     </div>
 
@@ -42,14 +45,13 @@ html, body, #app {
 
 /* Layout principal */
 .localize-page {
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* conținut sus, hartă jos */
   height: 100vh; /* ocupă întreaga înălțime a ecranului */
   padding: 2rem;
-  box-sizing: border-box;
-  background-color: #f9f9f9; /* fundal plăcut, neutru */
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box; /* fundal plăcut, neutru */
 }
 
 /* Secțiunea textuală */
@@ -58,17 +60,6 @@ html, body, #app {
   margin-bottom: 1rem;
 }
 
-.content h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.content p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.5;
-}
 
 /* Secțiunea hartă */
 .map-wrapper {

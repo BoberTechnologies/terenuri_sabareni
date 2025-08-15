@@ -16,10 +16,10 @@ import FooterBar from './components/FooterBar.vue';
 <style>
 :root {
   /* Font families */
-  --font-heading: 'Bitter', serif;
-  --font-title: 'Montserrat', sans-serif;
-  --font-subtitle: 'Josefin Sans', sans-serif;
-  --font-paragraph: 'Merriweather', serif;
+  --font-heading: 'Oswald', serif;
+  --font-title: 'Oswald', sans-serif;
+  --font-subtitle: 'Segoe UI', sans-serif;
+  --font-paragraph: 'Nunito', serif;
 
   /* Font sizes */
   --font-size-h1: 2.5rem;
@@ -27,7 +27,7 @@ import FooterBar from './components/FooterBar.vue';
   --font-size-h3: 1.5rem;
   --font-size-title: 2.2rem;
   --font-size-subtitle: 1.3rem;
-  --font-size-paragraph: 1rem;
+  --font-size-paragraph: 1.1rem;
 
   /* Font weights */
   --font-weight-heading: 700;

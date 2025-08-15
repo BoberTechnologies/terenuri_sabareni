@@ -5,8 +5,8 @@
         <img :src="arrow" alt="Next" class="counter" />
       </button>
     </div>
-    <div class="strip-center">{{ centerText }}</div>
-    <div class="strip-right">{{ rightText }}</div>
+    <div class="strip-center subtitle">{{ centerText }}</div>
+    <div class="strip-right paragraph">{{ rightText }}</div>
   </div>
 </template>
 

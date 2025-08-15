@@ -1,5 +1,5 @@
 <template>
-  <div style="background: transparent">
+  <div class="image-card-wrapper">
     <div :style="cardStyle" class="image-card">
       <img :src="image" alt="card image" />
     </div>
@@ -30,7 +30,7 @@ export default {
         overflow: 'hidden',
         borderRadius: '12px',
         textAlign: 'center',
-        display: 'inline-block',
+        // Removed display: 'inline-block'
       };
     },
   },
@@ -38,7 +38,12 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+.image-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .image-card {
   display: flex;
@@ -62,9 +67,10 @@ img {
 }
 
 .text-content {
-  margin: 1rem;
-  max-width: 100%;
+  margin: 1rem 0;
+  width: 20vw;
   word-break: break-word;
+  text-align: center;
 }
 
 .image-title {
@@ -73,6 +79,12 @@ img {
 
 .image-paragraph {
   text-align: justify;
+}
+
+@media (orientation: portrait) {
+  .text-content {
+    width: 80vw;
+  }
 }
 
 </style>

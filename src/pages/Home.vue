@@ -243,6 +243,7 @@ watch(
   }
   .section-content{
     display: block;
+    text-align: center;
   }
   .section-content p{
     display: inline-block;
@@ -253,7 +254,7 @@ watch(
   }
   .pop-images {
     flex-direction: column;      /* stack vertically */
-    gap: 5vh;                    /* vertical gap between cards */
+    gap: 5vh;               /* vertical gap between cards */
   }
   .pop-image {
     align-self: center;
